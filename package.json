@@ -15,7 +15,12 @@
   },
   "dependencies": {
     "gatsby": "^4.0.0",
+    "gatsby-plugin-image": "^2.0.0",
+    "gatsby-plugin-sharp": "^4.0.0",
+    "gatsby-plugin-tailwindcss": "^1.0.3",
+    "gatsby-source-filesystem": "^4.0.0",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "tailwindcss": "^2.2.17"
   }
 }
