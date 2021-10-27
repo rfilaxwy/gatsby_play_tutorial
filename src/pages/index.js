@@ -5,9 +5,9 @@ import { StaticImage } from 'gatsby-plugin-image';
 const IndexPage = () => (
   <Layout pageTitle="Home">
     <p>Following the gastby tutorial</p>
-    <StaticImage 
-      alt='Cliff'
-      src="../images/space.jpeg" 
+    <StaticImage
+      alt='Space the outter parts'
+      src="../images/space.jpeg"
     />
   </Layout>
 )
