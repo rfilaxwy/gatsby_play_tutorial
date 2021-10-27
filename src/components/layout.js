@@ -1,28 +1,47 @@
 import * as React from 'react';
-import { Link } from 'gatsby';
-import { 
-    container, 
-    heading, 
-    navLinks, 
-    navLinkItem, 
-    navLinkText 
-} from './layout.module.css';
+import { useStaticQuery, graphql } from 'gatsby';
+import {
+  Header,
+  Container,
+  Heading,
+  NavLinks,
+  NavLinkItem,
+  NavLinkText
+} from './style';
 
 const Layout = ({ pageTitle, children }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
+
   return (
-    <div className={container} >
-      <title>{pageTitle}</title>
+    <Container>
+      <title>{pageTitle} | {data.site.siteMetadata.title}</title>
+      <Header>{data.site.siteMetadata.title}</Header>
       <nav>
-        <ul className={navLinks}>
-          <li className={navLinkItem}><Link to="/" className={navLinkText}>Home</Link></li>
-          <li className={navLinkItem}><Link to="/about" className={navLinkText}>About</Link></li>
-        </ul>
+        <NavLinks>
+          <NavLinkItem>
+            <NavLinkText to="/">Home</NavLinkText>
+          </NavLinkItem>
+          <NavLinkItem>
+            <NavLinkText to="/about">About</NavLinkText>
+          </NavLinkItem>
+          <NavLinkItem>
+            <NavLinkText to="/blog">Blog</NavLinkText>
+          </NavLinkItem>
+        </NavLinks>
       </nav>
       <main>
-        <h1 className={heading}>{pageTitle}</h1>
+        <Heading>{pageTitle}</Heading>
         {children}
       </main>
-    </div>
+    </Container>
   )
 }
 export default Layout
